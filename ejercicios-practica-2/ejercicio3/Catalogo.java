@@ -1,4 +1,5 @@
 package ejercicio3;
+import ejercicio1.Libro;
 
 
 public class Catalogo {
