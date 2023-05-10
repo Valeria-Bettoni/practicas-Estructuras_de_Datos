@@ -1,6 +1,5 @@
 package ejercicio1;
 
-
 public class Libro {
 
     private String titulo;

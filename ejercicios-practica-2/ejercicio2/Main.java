@@ -1,5 +1,10 @@
 package ejercicio2;
-
+/*
+* Compilar y ejecutar con:
+* javac ejercicio2/Libro.java
+* javac ejercicio2/Main.java
+* java ejercicio2.Main
+*/
 
 public class Main {
     
@@ -23,8 +28,10 @@ public class Main {
         
         // Comparacion de objetos
         System.out.println("Iguales l1 y l2: " + l1.equals(l2));
+        // l2 y l3 son iguales porque equals compara el valor de sus atributos
         System.out.println("Iguales l2 y l3: " + l2.equals(l3));
         // Cual es el significado del resultado a continuacion?
+        // l2 y l3 son distintos porque == compara si son el mismo objeto
         System.out.println("Iguales l2 y l3: " + (l2 == l3));
         
         

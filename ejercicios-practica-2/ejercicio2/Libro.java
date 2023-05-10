@@ -50,9 +50,13 @@ public class Libro {
     
     @Override
     public boolean equals(Object other) {
+        //Si es el mism objeto, retorno true
         if (other == this) return true;
+        //Si el objeto es nullo, retorno false
         if (other == null) return false;
+        //Si son objetos de diferentes clases, retorno false
         if (other.getClass() != this.getClass()) return false;
+        //Si tienen el mismo autor, mismo título y mismo número de páginas, retorno true.
     	return (this.obtenerAutor().equals(((Libro)other).obtenerAutor()) &&
     			this.obtenerTitulo().equals(((Libro)other).obtenerTitulo()) &&
     			this.obtenerNroPag() == ((Libro)other).obtenerNroPag());
