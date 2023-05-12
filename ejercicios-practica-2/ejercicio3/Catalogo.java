@@ -44,6 +44,4 @@ public class Catalogo {
         for (int i = 0; i<nroLibros; i++) 
             System.out.println("Libro " + i + ": " + libros[i].toString());
     }
-
-
 }
