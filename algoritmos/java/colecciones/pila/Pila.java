@@ -19,7 +19,7 @@ package colecciones.pila;
 
 public interface Pila<T> {
     
-    /**
+	/**
 	* Permite evaluar si la pila no tiene elementos.
 	* @return {@code true} sii la pila no tiene elementos
 	*/
@@ -33,8 +33,8 @@ public interface Pila<T> {
 	public boolean apilar(T elem);
 
 	/**
-	* Desapila el ultimo elemento de la pila, y retorna el elemento desapilado, si ésta no es vacía.
-	* @return el ultimo elemento de la pila
+	* Desapila el ultimo elemento de la pila, y retorna el elemento si se desapiló.Si está vacía retorna una excepción
+	* @return El elemento de la pila que se desapiló
 	* @throws IllegalStateException si la pila está vacía
 	* @see #esVacia()
 	*/
@@ -69,4 +69,5 @@ public interface Pila<T> {
 
 	@Override
 	public boolean equals(Object other);
+
 }
