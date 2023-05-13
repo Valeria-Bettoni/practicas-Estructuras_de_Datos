@@ -2,6 +2,7 @@ package queue;
 
 public class ArrayQueue<T> implements Queue<T>
 {
+    @SuppressWarnings("unchecked")
     public ArrayQueue( )
     {
         theArray = (T []) new Object[ DEFAULT_CAPACITY ];
@@ -57,6 +58,7 @@ public class ArrayQueue<T> implements Queue<T>
     /**
      * Internal method to expand theArray.
      */
+    @SuppressWarnings("unchecked")
     private void doubleQueue( )
     {
         T [ ] newArray;

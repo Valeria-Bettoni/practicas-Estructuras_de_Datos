@@ -20,14 +20,14 @@ public class ListQueue<T> implements Queue<T>
         else                // Regular case
             back = back.setNext(new ListNode<T>( x ));
     }
-
+    /* 
     public T dequeue( )
     {
         if( isEmpty( ) )
             throw new UnderflowException( "ListQueue dequeue" );
 
         //TODO:Complete the implementation of dequeue.
-    }
+    } */
 
     public T getFront( ) 
     {
