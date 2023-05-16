@@ -50,47 +50,97 @@ public class ColaArregloFijo<T> implements Cola<T> {
 
 	@Override
 	public boolean esVacia() {
-		throw new UnsupportedOperationException("Implementar y eliminar esta sentencia");	
+		return elementos == 0;	
 	}
 
 	@Override
 	public int elementos() {
-		throw new UnsupportedOperationException("Implementar y eliminar esta sentencia");
+		return elementos;
 	}
 
 	@Override
 	public boolean encolar(T elem) {
-		throw new UnsupportedOperationException("Implementar y eliminar esta sentencia");		
+		if (elementos == arreglo.length)
+			return false;	
+		arreglo[elementos] = elem;
+		elementos++;
+		return true;	
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public T desencolar() {
-		throw new UnsupportedOperationException("Implementar y eliminar esta sentencia");
+		if (elementos == 0)
+			throw new IllegalStateException("Cola vacia");
+		elementos--;
+		return (T) arreglo[elementos];
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public T primero() {
-		throw new UnsupportedOperationException("Implementar y eliminar esta sentencia");	
+		if (esVacia())
+			throw new IllegalStateException("Cola vacia");
+		T primero = (T) arreglo[0];
+		//Corro los elementos hacia adelante
+		for (int i = 0; i<elementos-1; i++){
+			arreglo[i] = arreglo[i+1];
+		}
+		return primero;
 	}
 
 	@Override
 	public void vaciar() {
-		throw new UnsupportedOperationException("Implementar y eliminar esta sentencia");	
+		elementos = 0;	
 	}
 
 	@Override
 	public boolean repOK() {
-		throw new UnsupportedOperationException("Implementar y eliminar esta sentencia");	
+		if (arreglo.length == 0) {
+            return false;
+        }
+        if (elementos < 0 || elementos > CAPACIDAD_POR_DEFECTO) {
+            return false;
+        }
+        for (int i = 0; i < elementos; i++) {
+            if (arreglo[i] == null) {
+                return false;
+            }
+        }
+        return true;	
 	}
 
 	@Override
 	public String toString() {
-		throw new UnsupportedOperationException("Implementar y eliminar esta sentencia");	
+		String cadena = new String();
+		cadena = "INICIO [";
+        for (int i = 0; i < elementos-1; i++){
+            cadena = cadena + (arreglo[i]) + ", ";
+        }
+		cadena = cadena + (arreglo[elementos-1]) + "] FIN";
+        return cadena;
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public boolean equals(Object other) {
-		throw new UnsupportedOperationException("Implementar y eliminar esta sentencia");	
+		//Si es el mism objeto, retorno true
+        if (other == this) return true;
+        //Si el objeto es nullo, retorno false
+        if (other == null) return false;
+        //Si son objetos de diferentes clases, retorno false
+        if (other.getClass() != this.getClass()) return false;
+
+        ColaArregloFijo<T> otherCola = (ColaArregloFijo<T>) other;
+
+        //Si tienen diferente cantidad de elementos, retorno false
+        if (this.elementos() != otherCola.elementos()) return false;
+
+        //Si tienen los mismos elementos, retorno true
+        for (int i = 0; i < this.elementos(); i++){
+            if (!(otherCola.arreglo[i]).equals(this.arreglo[i])) return false;
+        } 
+        return true;	
 	}
 
 	/**
